@@ -1,4 +1,25 @@
 function Signup () {
+
+    async function signup() {
+        const email = document.getElementById('email').value;
+        const name = document.getElementById('name').value;
+        const password = document.getElementById('password').value;
+        const retype_password = document.getElementById('retype-password').value;
+
+        const response = await fetch('https://localhost:3030/api/signup', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                email,
+                name,
+                password,
+                retype_password
+            })
+        })
+    }
+
     return <>
         <div>
             <p>Enter your email</p>
@@ -10,7 +31,7 @@ function Signup () {
             <p>Retype password</p>
             <input type="password" name="retype-password" id="retype-password"/>
             <br/>
-            <button id="signup-btn">Signup</button>
+            <button onClick={signup} id="signup-btn">Signup</button>
         </div>
     </>
 }

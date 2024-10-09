@@ -1,3 +1,5 @@
 .idea/
 .git/
 backend/ssl/
+backend/node_modules/
+frontend/build
